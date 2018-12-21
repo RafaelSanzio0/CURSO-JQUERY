@@ -7,6 +7,7 @@ $(function(){ // com este atalho do Jquery, eu chamo todas as minhas funçções
     inicializaContadores();
     inicializaCronometro();
     reiniciaJogo();
+    comparaFrase();
 }
 );
 
@@ -37,20 +38,45 @@ function inicializaCronometro(){
             if (tempo == 0){
                 campo.attr("disabled",true); //o attr pode chamar um atributo ou ate mesmo altera-lo
                 clearInterval(contadorID); // com este carinha aqui, consigo travar o contador no tempo 0
+                campo.addClass("campo-desativado");    
             }  
         },1000);
     });
 }
 
 function reiniciaJogo(){
-    $("#reincia-jogo").click(function(){
+    $("#reinicia-jogo").click(function(){
         campo.attr("disabled",false);
         campo.val(" ");
         $("#contador-palavras").text("0");
         $("#contador-caracteres").text("0");
         $("#tempo-digitacao").text(tempoInicial);
+        campo.removeClass("campo-desativado");
         inicializaCronometro();
     });
-}
+};
+
+function comparaFrase(){
+    var frase = $(".frase").text();
+    campo.on("input",function(){
+        var digitalizado = campo.val();
+        var frasePedaco = frase.substr(0,digitalizado.length); // com essa função substr eu consigo pegar o pedaço da frase e comparar com oq o user esta digitando
+        //poderia usar a função frase.startsWith(digitalizado), está e uma nova função do JS(CASO SEU BROWSER SUPORTE)
+        console.log(digitalizado);
+        console.log(frasePedaco);
+
+        if (digitalizado == frasePedaco){
+            campo.addClass("correto");
+            campo.removeClass("errado");
+        }else{
+            campo.addClass("errado");
+            campo.removeClass("correto");
+        }
+    });
+};
+
+
+
+
 
 
