@@ -1,29 +1,43 @@
+
 <!DOCTYPE HTML>
 
 <html lang="pt-br">
 <head> 
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
+
 </head>
 <body>
-    <h1>Alura Typer</h1>
-    <p class="frase">Rafael sanzio da silva lima é um gato paps</p>
+    <div class="container">
+        <h1 class="titulo center">Alura Typer</h1>
+        <p class="frase center">Rafael sanzio da silva lima é um gato paps</p>
 
-    <ul class="informacoes">
-        <li><span id ="tamanho-frase"></span> palavras</li>
-        <li><span id="tempo-digitacao">8</span> segundos</li>
-    </ul>
+        <ul class="informacoes center">
+            <li>
+                <i class="material-icons icones">description</i>
+                <span id ="tamanho-frase"></span> palavras
+            </li>
+            <li>
+                <i class="material-icons icones">query_builder</i>
+                <span id="tempo-digitacao">8</span> segundos
+            </li>
+        </ul>
 
-    <script src="js/jquery.js"></script>
-    <script src="js/main.js"></script>
-    
-    <textarea class="campo-digitacao" rows="8" cols="85"></textarea>
-    <button id="reincia-jogo">Reiniciar</button>
-    
-    <h4>Aqui em baixo é com você !</h4>
-    <li><span id="contador-palavras">0</span> palavras</li>
-    <li><span id="contador-caracteres">0</span> caracteres</li>
-    
+        <script src="js/jquery.js"></script>
+        <script src="js/main.js"></script>
+        
+        <textarea class="campo-digitacao" rows="8" cols="85"></textarea>
+        <a class="btn-floating btn-large waves-effect waves-light red" id="reinicia-jogo">
+            <i class="material-icons">restore</i>
+        </a>
+
+        
+        <h5 class="center"><span id="contador-palavras">0</span> palavras</h5>
+        <h5 class="center"><span id="contador-caracteres">0</span> caracteres</h5>
+    </div>
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
 
